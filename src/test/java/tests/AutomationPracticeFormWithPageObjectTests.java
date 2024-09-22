@@ -26,6 +26,7 @@ public class AutomationPracticeFormWithPageObjectTests extends TestBase {
         String city = "Noida";
 
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
@@ -61,6 +62,7 @@ public class AutomationPracticeFormWithPageObjectTests extends TestBase {
         String phoneNumber = "1234567890";
 
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setGender(gender)
@@ -75,7 +77,9 @@ public class AutomationPracticeFormWithPageObjectTests extends TestBase {
 
     @Test
     void negativeRegistrationTest() {
-        registrationPage.openPage().clickSubmit();
+        registrationPage.openPage()
+                .removeBanner()
+                .clickSubmit();
 
         registrationPage.negativeCheck();
     }
